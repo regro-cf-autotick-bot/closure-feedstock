@@ -1,5 +1,5 @@
 {% set name = "closure" %}
-{% set version = "20190417" %}
+{% set version = "20191111" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a8dc7dae000ea48c5d9a817f5671fd7402bb81104ef00530662b8fd27748cc16
+  sha256: a133ac625c55697645b1c41745e167572633982128ee7f06e401fd76cb4e292f
 
 build:
   noarch: python
