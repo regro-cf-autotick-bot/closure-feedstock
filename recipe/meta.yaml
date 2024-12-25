@@ -6,12 +6,12 @@ package:
   version: "{{ version }}"
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: a133ac625c55697645b1c41745e167572633982128ee7f06e401fd76cb4e292f
 
 build:
   noarch: python
-  number: 1
+  number: 2
   entry_points:
     - closure = closure:main
   script: "{{ PYTHON }} -m pip install . -vv "
@@ -19,14 +19,16 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - setuptools
   run:
-    - python
+    - python >={{ python_min }}
     - setuptools
     - openjdk
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - closure
   commands:
